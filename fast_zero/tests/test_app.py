@@ -17,6 +17,6 @@ def test_root_deve_retornar_ok_e_hello_user():
 def test_client_nao_deve_retornar_ok():
     client = TestClient(app)
 
-    response = client.get("/not_found")
+    response = client.get('/not_found')
 
     assert response.status_code == HTTPStatus.NOT_FOUND
