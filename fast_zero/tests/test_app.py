@@ -97,10 +97,7 @@ def test_delete_user_not_found(client):
 
     assert response.status_code == HTTPStatus.NOT_FOUND
     assert response.json() == {'detail': 'User not found.'}
-    assert (
-        len(client.get('/users/').json()['users'])
-        == NUM_OF_USERS_CREATED
-    )
+    assert len(client.get('/users/').json()['users']) == NUM_OF_USERS_CREATED
 
 
 def test_delete_user(client):
