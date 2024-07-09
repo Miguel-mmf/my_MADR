@@ -16,7 +16,7 @@ def test_create_user():
 
     with Session(engine) as session:
         user = User(
-            name='miguel',
+            username='miguel',
             password='admin123-Atualizada2024',
             email='miguel@gmail.com',
         )
@@ -25,16 +25,16 @@ def test_create_user():
         session.commit()
         session.refresh(user)
 
-        result = session.scalar(select(User).where(User.name == 'miguel'))
+        result = session.scalar(select(User).where(User.username == 'miguel'))
 
     assert user.id == 1
-    assert user.name == 'miguel'
+    assert user.username == 'miguel'
     assert user.password == 'admin123-Atualizada2024'
     assert user.email == 'miguel@gmail.com'
     assert user.created_at is not None
 
     assert result.id == 1
-    assert result.name == 'miguel'
+    assert result.username == 'miguel'
     assert result.password == 'admin123-Atualizada2024'
     assert result.email == 'miguel@gmail.com'
     assert result.created_at is not None
@@ -42,7 +42,7 @@ def test_create_user():
 
 def teste_create_user_v02(session):
     user = User(
-        name='miguel',
+        username='miguel',
         password='admin123-Atualizada2024',
         email='miguel@gmail.com',
     )
@@ -51,16 +51,16 @@ def teste_create_user_v02(session):
     session.commit()
     session.refresh(user)
 
-    result = session.scalar(select(User).where(User.name == 'miguel'))
+    result = session.scalar(select(User).where(User.username == 'miguel'))
 
     assert user.id == 1
-    assert user.name == 'miguel'
+    assert user.username == 'miguel'
     assert user.password == 'admin123-Atualizada2024'
     assert user.email == 'miguel@gmail.com'
     assert user.created_at is not None
 
     assert result.id == 1
-    assert result.name == 'miguel'
+    assert result.username == 'miguel'
     assert result.password == 'admin123-Atualizada2024'
     assert result.email == 'miguel@gmail.com'
     assert result.created_at is not None
