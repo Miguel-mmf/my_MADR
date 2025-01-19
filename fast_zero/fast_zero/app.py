@@ -21,7 +21,7 @@ def read_root():
     # return read_root_formatting_with_html()
 
 
-@app.post('/users', status_code=HTTPStatus.CREATED, response_model=UserPublic)
+@app.post('/users/', status_code=HTTPStatus.CREATED, response_model=UserPublic)
 def create_user(user: UserSchema, session: Session = Depends(get_session)):
     if db_user := session.scalar(
         select(User).where(
@@ -54,7 +54,7 @@ def create_user(user: UserSchema, session: Session = Depends(get_session)):
     # return user_with_id
 
 
-@app.get('/users', status_code=HTTPStatus.OK, response_model=UserList)
+@app.get('/users/', status_code=HTTPStatus.OK, response_model=UserList)
 def read_users(
     limit: int = 10, offset: int = 0, session: Session = Depends(get_session)
 ):
