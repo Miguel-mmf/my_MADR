@@ -85,12 +85,12 @@ def test_update_user(client, user, token):
     }
 
 
-def test_update_user_not_found(client, user, token):
+def test_update_user_not_found(client, user, other_user, token):
     response = client.put(
         f'/users/{user.id + 1}',
         headers={'Authorization': f'Bearer {token}'},
         json={
-            'username': 'user_updated',
+            'username': other_user.username,
             'email': 'user_update@gmail.com',
             'password': 'password_updated',
         },
